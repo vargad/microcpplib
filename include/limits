@@ -1,0 +1,26 @@
+#ifndef _STD_LIMITS_INCLUDED
+#define _STD_LIMITS_INCLUDED
+
+#include <cstdint>
+#include <cstdlib>
+
+namespace std {
+
+    template <typename Type>
+    struct numeric_limits {
+        static constexpr std::size_t max() { static_assert(sizeof(Type)!=0, "Numeric limits not implemented for this type"); return 0; }
+    };
+
+    template <>
+    struct numeric_limits<uint8_t> {
+        static constexpr std::size_t max() { return 255; }
+    };
+
+    template <>
+    struct numeric_limits<uint16_t> {
+        static constexpr std::size_t max() { return 65535; }
+    };
+
+}
+
+#endif

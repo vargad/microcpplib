@@ -1,0 +1,32 @@
+#ifndef _STD_ALGORITHM_INCLUDED
+#define _STD_ALGORITHM_INCLUDED
+
+namespace std {
+
+    template<class InputIteratorType, class OutputIteratorType>
+    OutputIteratorType copy(InputIteratorType inputBegin, InputIteratorType inputEnd,
+                  OutputIteratorType output)
+    {
+        InputIteratorType inputPos = inputBegin;
+        OutputIteratorType outputPos = output;
+        while (inputPos != inputEnd) {
+            *outputPos = *inputPos;
+            ++inputPos;
+            ++outputPos;
+        }
+        return outputPos;
+    }
+
+    template<class T>
+    constexpr const T& min(const T& a, const T& b) {
+        return a>b ? b : a;
+    }
+
+    template<class T>
+    constexpr const T& max(const T& a, const T& b) {
+        return a>b ? a : b;
+    }
+
+}
+
+#endif

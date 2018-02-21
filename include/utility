@@ -1,0 +1,20 @@
+#ifndef _STD_UTILITY_INCLUDED
+#define _STD_UTILITY_INCLUDED
+
+#include <type_traits>
+
+namespace std {
+
+    template<class T>
+    constexpr T&& forward(typename std::remove_reference<T>::type& param) noexcept {
+        return static_cast<typename std::remove_reference<T>::type&&>(param);
+    }
+
+    template< class T >
+    constexpr T&& forward(typename std::remove_reference<T>::type&& param) noexcept {
+        return static_cast<typename std::remove_reference<T>::type&&>(param);
+    }
+
+}
+
+#endif

@@ -1,0 +1,16 @@
+#ifndef _STD_ITERATOR_INCLUDED
+#define _STD_ITERATOR_INCLUDED
+
+#include <cstdlib>
+
+namespace std {
+
+    template<class Type, size_t Length>
+    inline constexpr Type* begin(Type(&array)[Length]) noexcept { return array; }
+
+    template<class Type, size_t Length>
+    inline constexpr Type* end(Type(&array)[Length]) noexcept { return array+Length; }
+
+}
+
+#endif

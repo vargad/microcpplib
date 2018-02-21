@@ -1,0 +1,12 @@
+#ifndef _STD_CSTDDEF_INCLUDED
+#define _STD_CSTDDEF_INCLUDED
+
+#include <stddef.h>
+
+namespace std {
+
+    using ptrdiff_t = ::ptrdiff_t;
+
+}
+
+#endif

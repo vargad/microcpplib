@@ -1,0 +1,22 @@
+#ifndef _STD_TYPE_TRAITS_INCLUDED
+#define _STD_TYPE_TRAITS_INCLUDED
+
+namespace std {
+
+    template <class EnumType>
+    struct underlying_type {
+        using type = __underlying_type(EnumType);
+    };
+
+    template<class T>
+    struct remove_reference { typedef T type; };
+
+    template<class T>
+    struct remove_reference<T&> { typedef T type; };
+
+    template<class T>
+    struct remove_reference<T&&> { typedef T type; };
+
+}
+
+#endif

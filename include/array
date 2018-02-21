@@ -1,0 +1,38 @@
+#ifndef _STD_ARRAY_INCLUDED
+#define _STD_ARRAY_INCLUDED
+
+#include <iterator>
+#include <cstdint>
+#include <cstddef>
+#include <initializer_list>
+#include <algorithm>
+
+namespace std {
+
+    template <class T, std::size_t Size>
+    class array
+    {
+    public:
+        using value_type = T;
+        using size_type = std::size_t;
+        using difference_type = std::ptrdiff_t;
+        using iterator = T*;
+        using const_iterator = T const*;
+
+        array() = default;
+
+        T* data() noexcept { return mData; }
+        T const* data() const noexcept { return mData; }
+
+        iterator begin() noexcept { return mData; }
+        const_iterator begin() const noexcept { return mData; }
+        iterator end() noexcept { return mData+Size; }
+        const_iterator end() const noexcept { return mData+Size; }
+
+    private:
+        T mData[Size];
+    };
+
+}
+
+#endif

@@ -1,0 +1,40 @@
+#ifndef _STD_INITIALIZER_LIST_INCLUDED
+#define _STD_INITIALIZER_LIST_INCLUDED
+
+#include <cstdlib>
+
+namespace std {
+
+    template <class T>
+    class initializer_list
+    {
+    public:
+        using value_type = T;
+        using reference = T const&;
+        using const_reference = T const&;
+        using size_type = std::size_t;
+        using iterator = T const*;
+        using const_iterator = T const*;
+
+        constexpr initializer_list() noexcept
+            : mData(nullptr)
+            , mSize(0)
+        {}
+
+        constexpr size_type size() const noexcept { return mSize; }
+
+        constexpr const T* begin() const noexcept { return mData; }
+        constexpr const T* end() const noexcept { return mData+mSize; }
+    private:
+        constexpr initializer_list(const_iterator data, size_type size) noexcept
+            : mData(data)
+            , mSize(size)
+        {}
+
+        T const *mData;
+        size_type mSize;
+    };
+
+}
+
+#endif

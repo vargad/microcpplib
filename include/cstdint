@@ -1,0 +1,16 @@
+#ifndef _STD_CSTDINT_INCLUDED
+#define _STD_CSTDINT_INCLUDED
+
+#include <stdint.h>
+
+namespace std {
+
+    using uint8_t = ::uint8_t;
+    using uint16_t = ::uint16_t;
+
+    using int8_t = ::int8_t;
+    using int16_t = ::int16_t;
+
+}
+
+#endif
