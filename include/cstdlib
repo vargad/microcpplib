@@ -1,5 +1,5 @@
-#ifndef _STD_CSTDINT_INCLUDED
-#define _STD_CSTDINT_INCLUDED
+#ifndef _STD_CSTDLIB_INCLUDED
+#define _STD_CSTDLIB_INCLUDED
 
 #include <stdlib.h>
 
